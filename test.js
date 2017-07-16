@@ -10,3 +10,9 @@ AA7
   .then(function(results) {
     console.log(results.average);
   })
+
+AA7
+  .sum(['Integer', 'Integer2'])
+  .then(function(results) {
+    console.log(results.sum);
+  })
