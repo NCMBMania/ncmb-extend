@@ -2,6 +2,14 @@
 
 ニフティクラウド mobile backendのJavaScript SDKを拡張するライブラリです。
 
+## Install
+
+Using npm
+
+```
+$ npm install ncmb-extend
+```
+
 ## Usage
 
 ```
