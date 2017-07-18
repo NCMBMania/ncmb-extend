@@ -2,7 +2,7 @@ module.exports = function(fields) {
   let me = this;
   return new Promise(function(res, rej) {
     me.fetchAll()
-      .then(function(results) {
+      .then(function (results) {
         if (!fields)
           return res(results);
         if (typeof fields === 'string') {
@@ -24,7 +24,7 @@ module.exports = function(fields) {
         res(results);
       })
       .catch(function(err) {
-        rej(results);
+        rej(err);
       })
   })
 }

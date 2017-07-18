@@ -1,8 +1,8 @@
-module.exports = function(fields) {
-  let me = this;
-  return new Promise(function(res, rej) {
+module.exports = function main(fields) {
+  const me = this;
+  return new Promise(function exec(res, rej) {
     me.fetchAll()
-      .then(function(results) {
+      .then(function fetchSuccess(results) {
         if (!fields)
           return res(results);
         if (typeof fields === 'string') {
@@ -10,7 +10,7 @@ module.exports = function(fields) {
         }
         let avarages = {};
         for (let i = 0; i < results.length; i++) {
-          let row = results[i];
+        let row = results[i];
           for (let j = 0; j < fields.length; j++) {
             let field = fields[j];
             if (!avarages[field])
@@ -27,7 +27,7 @@ module.exports = function(fields) {
         res(results);
       })
       .catch(function(err) {
-        rej(results);
+        rej(err);
       })
   })
 }
