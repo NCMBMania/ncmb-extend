@@ -1,5 +1,6 @@
-let Query     = require('ncmb/lib/query');
-let average = require('./average');
-let sum = require('./sum');
+const Query = require('ncmb/lib/query');
+const average = require('./average');
+const sum = require('./sum');
+
 Query.prototype.average = average;
-Query.prototype.sum     = sum;
+Query.prototype.sum = sum;
