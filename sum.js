@@ -1,30 +1,31 @@
-module.exports = function(fields) {
-  let me = this;
-  return new Promise(function(res, rej) {
+module.exports = function main(returnFields) {
+  const me = this;
+  return new Promise((res, rej) => {
     me.fetchAll()
-      .then(function (results) {
-        if (!fields)
+      .then((results) => {
+        if (!returnFields) {
           return res(results);
-        if (typeof fields === 'string') {
-          fields = [fields];
         }
-        let sums = {};
-        for (let i = 0; i < results.length; i++) {
-          let row = results[i];
-          for (let j = 0; j < fields.length; j++) {
-            let field = fields[j];
-            if (!sums[field])
+        const fields = typeof returnFields === 'string' ? [returnFields] : returnFields;
+        const sums = {};
+        let row;
+        for (let i = 0; i < results.length; i += 1) {
+          row = results[i];
+          let field;
+          for (let j = 0; j < fields.length; j += 1) {
+            field = fields[j];
+            if (!sums[field]) {
               sums[field] = 0;
-            if (typeof row[field] !== 'number')
-              continue;
-            sums[field] += row[field];
+            }
+            if (typeof row[field] === 'number') {
+              sums[field] += row[field];
+            }
           }
         }
-        results.sum = sums;
-        res(results);
+        const resultObj = results;
+        resultObj.sum = sums;
+        return res(resultObj);
       })
-      .catch(function(err) {
-        rej(err);
-      })
-  })
-}
+      .catch(err => rej(err));
+  });
+};
