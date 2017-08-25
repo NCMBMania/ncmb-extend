@@ -23,8 +23,10 @@ module.exports = function main(returnField) {
           }
         }
         const keys = Object.keys(avarages);
+        let key;
         for (let i = 0; i < keys.length; i += 1) {
-          avarages[i] = parseInt(avarages[i] / results.length, 10);
+          key = keys[i];
+          avarages[key] = parseInt(avarages[key] / results.length, 10);
         }
         const returnObj = results;
         returnObj.average = avarages;
