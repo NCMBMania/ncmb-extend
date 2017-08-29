@@ -12,6 +12,10 @@ $ npm install ncmb-extend
 
 ## Usage
 
+### average
+
+取得したデータの平均値を計算します。
+
 ```
 require('ncmb-extend');
 let NCMB = require('ncmb');
@@ -25,6 +29,20 @@ Item
     console.log(results.average);
     // -> { Integer: 142, Integer2: 31 }
   })
+```
+
+### each
+
+各行ごとにデータを取得します。
+
+```
+AA7
+  .calc((obj) => {
+    return { plus: obj.Integer + obj.Integer2 };
+  })
+  .then((results) => {
+    console.log(results);
+  });
 ```
 
 ## LICENSE
