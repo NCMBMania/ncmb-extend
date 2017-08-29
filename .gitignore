@@ -1,2 +1,4 @@
 config.json
 node_modules
+sum.old.js
+.node-version
