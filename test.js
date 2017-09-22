@@ -5,22 +5,32 @@ const NCMB = require('ncmb');
 const ncmb = new NCMB(config.application_key, config.client_key);
 
 const AA7 = ncmb.DataStore('AA7');
+/*
 AA7
   .average(['Integer', 'Integer2'])
   .then((results) => {
-    // console.log(results.average);
+    console.log(results.average);
   });
 
 AA7
   .sum(['Integer', 'Integer2'])
   .then((results) => {
-    // console.log(results.sum);
+    console.log(results.sum);
   });
 
 AA7
-  .each((obj) => {
-    return { plus: obj.Integer + obj.Integer2 };
-  })
+  .each(obj => ({ plus: obj.Integer + obj.Integer2 }))
   .then((results) => {
-    // console.log(results);
+    console.log(results);
   });
+*/
+AA7
+  .equalTo('Boolean', true)
+  .updateAll({
+    Integer: 5,
+    Integer2: me => me.Integer2 += 1,
+  })
+  .then((ary) => {
+    console.log(ary);
+  });
+
