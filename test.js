@@ -28,7 +28,7 @@ AA7
   .equalTo('Boolean', true)
   .updateAll({
     Integer: 5,
-    Integer2: me => me.Integer2 += 1,
+    Integer2: 50,
   })
   .then((ary) => {
     console.log(ary);
