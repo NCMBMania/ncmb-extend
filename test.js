@@ -23,7 +23,6 @@ AA7
   .then((results) => {
     console.log(results);
   });
-*/
 AA7
   .equalTo('Boolean', true)
   .updateAll({
@@ -33,4 +32,15 @@ AA7
   .then((ary) => {
     console.log(ary);
   });
+  */
 
+
+AA7
+  .groupBy(['Group', 'number'], [
+    { field: 'Integer', calc: 'sum' },
+    { field: 'Integer', calc: 'average', as: 'Integer_average' },
+    { field: 'Integer2', calc: 'average' },
+  ])
+  .then((rows) => {
+    console.log(rows);
+  });
