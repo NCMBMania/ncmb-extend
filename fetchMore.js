@@ -1,4 +1,4 @@
-module.exports = function (fields) {
+module.exports = function () {
   const me = this;
   return new Promise((res, rej) => {
     me

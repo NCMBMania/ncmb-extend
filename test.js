@@ -33,7 +33,6 @@ AA7
   .then((ary) => {
     console.log(ary);
   });
-*/
 
 const Data = ncmb.DataStore('Data');
 Data
@@ -41,6 +40,44 @@ Data
   .fetchMore()
   .then((data) => {
     console.log(data.length);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+  */
+
+const DataExtend = ncmb.DataStoreEX('Data', {
+  validates: {
+    int: {
+      type: 'number',
+      required: true,
+      min: 5,
+      max: 10,
+    },
+    name: {
+      type: 'string',
+      required: false,
+      min: 5,
+      max: 20,
+    },
+    option1: {
+      type: 'string',
+      required: true,
+    },
+  },
+  defaults: {
+    int: 0,
+    name: '',
+    option1: 1,
+  },
+});
+
+const item = new DataExtend({ int: 11 });
+item
+  .set('name', 'Test, test, test, test, test')
+  .save()
+  .then((obj) => {
+    console.log(obj);
   })
   .catch((err) => {
     console.log(err);
