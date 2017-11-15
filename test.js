@@ -46,6 +46,7 @@ Data
   });
   */
 
+/*
 const DataExtend = ncmb.DataStoreEX('Data', {
   validates: {
     int: {
@@ -81,4 +82,16 @@ item
   })
   .catch((err) => {
     console.log(err);
+  });
+*/
+
+const ary = [];
+ary.push(new AA7({ name: 'Array 1' }));
+ary.push(new AA7({ name: 'Array 2' }));
+ary.push(new AA7({ name: 'Array 3' }));
+ary.push(new AA7({ name: 'Array 4' }));
+AA7
+  .saveAll(ary)
+  .then((objs) => {
+    console.log(objs);
   });
