@@ -7,6 +7,9 @@ const deleteAll = require('./deleteAll');
 const fetchMore = require('./fetchMore');
 const saveAll = require('./saveAll');
 const DataStoreEX = require('./datastore_ex');
+const Acl = require('ncmb/lib/acl');
+const setAcl = require('./setAcl');
+
 const NCMB = require('ncmb');
 
 Query.prototype.average = average;
@@ -16,5 +19,7 @@ Query.prototype.updateAll = updateAll;
 Query.prototype.deleteAll = deleteAll;
 Query.prototype.fetchMore = fetchMore;
 Query.prototype.saveAll = saveAll;
+
+NCMB.prototype.AclEx = setAcl;
 
 NCMB.prototype.DataStoreEX = DataStoreEX;

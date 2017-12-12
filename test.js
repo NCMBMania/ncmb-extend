@@ -85,6 +85,7 @@ item
   });
 */
 
+/*
 const ary = [];
 ary.push(new AA7({ name: 'Array 1' }));
 ary.push(new AA7({ name: 'Array 2' }));
@@ -95,3 +96,11 @@ AA7
   .then((objs) => {
     console.log(objs);
   });
+*/
+
+const user1 = new ncmb.User();
+user1.objectId = 'aaa';
+const user2 = new ncmb.User();
+user2.objectId = 'bbb';
+const acl = ncmb.AclEx(['*', 'admin', 'user', user1, user2], ['admin', user2]);
+console.log(acl.toJSON());
